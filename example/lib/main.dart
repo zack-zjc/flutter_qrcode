@@ -12,6 +12,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  QrCodeViewController _controller;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,8 +21,29 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: QrCodeScanView(),
+        body: Stack(
+          children: <Widget>[
+            QrCodeScanView(
+              controllerCallback: (controller) {
+                _controller = controller;
+              },
+              scanCallback: (success, text) {
+                if (success) {
+                  print(text);
+                  _controller.restartScan();
+                }
+              },
+            ),
+            GestureDetector(
+              child: Text(
+                "打开闪光灯",
+                style: TextStyle(fontSize: 18.0),
+              ),
+              onTap: () {
+                _controller.setFlashlightOn();
+              },
+            )
+          ],
         ),
       ),
     );

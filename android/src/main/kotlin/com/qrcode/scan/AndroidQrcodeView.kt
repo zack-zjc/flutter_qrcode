@@ -18,9 +18,9 @@ import io.flutter.plugin.platform.PlatformView
  */
 class AndroidQrcodeView(context: Context, id: String, mRegistrar: PluginRegistry.Registrar) : PlatformView, MethodChannel.MethodCallHandler{
 
-    private val methodChannel: MethodChannel = MethodChannel(mRegistrar.messenger(), "flutter_qrcode_$id")
+    private val methodChannel: MethodChannel = MethodChannel(mRegistrar.messenger(), "com.qrcode.scan/channel_$id")
 
-    private val eventChannel: EventChannel = EventChannel(mRegistrar.messenger(), "flutter_qrcode_event_$id")
+    private val eventChannel: EventChannel = EventChannel(mRegistrar.messenger(), "com.qrcode.scan/event_$id")
 
     private var sink: EventChannel.EventSink? = null
 
@@ -29,11 +29,13 @@ class AndroidQrcodeView(context: Context, id: String, mRegistrar: PluginRegistry
     init {
         methodChannel.setMethodCallHandler(this)
         eventChannel.setStreamHandler(object : EventChannel.StreamHandler {
-            override fun onListen(o: Any, eventSink: EventChannel.EventSink) {
+            override fun onListen(o: Any?, eventSink: EventChannel.EventSink?) {
                 sink = eventSink
             }
 
-            override fun onCancel(o: Any) = Unit
+            override fun onCancel(o: Any?) {
+                sink = null
+            }
         })
         mQrCodeScanView.setCallback(object :QRCodeCalback{
             override fun onScanSuccess(text: String) {

@@ -6,7 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 class FlutterQrCode {
-  static const MethodChannel _channel = const MethodChannel('flutter_qrcode');
+  static const MethodChannel _channel =
+      const MethodChannel('com.qrcode.scan/flutter_qrcode');
 
   static Future<String> scanFile(File file) async {
     if (file?.existsSync() == false) {
@@ -22,15 +23,18 @@ class FlutterQrCode {
 }
 
 class QrCodeScanView extends StatefulWidget {
+  final Function(QrCodeViewController) controllerCallback;
+
+  final Function(bool, String) scanCallback;
+
+  QrCodeScanView({Key key, this.controllerCallback, this.scanCallback})
+      : super(key: key);
+
   @override
   State<StatefulWidget> createState() => QrCodeScanViewState();
 }
 
 class QrCodeScanViewState extends State<QrCodeScanView> {
-  MethodChannel _channel;
-
-  EventChannel _eventChannel;
-
   @override
   Widget build(BuildContext context) {
     if (defaultTargetPlatform == TargetPlatform.android) {
@@ -44,14 +48,32 @@ class QrCodeScanViewState extends State<QrCodeScanView> {
   }
 
   void createdFunction(id) {
-    _channel = MethodChannel('flutter_qrcode_$id');
-    _eventChannel = EventChannel('flutter_qrcode_event_$id');
+    widget.controllerCallback(QrCodeViewController(id, widget.scanCallback));
+  }
+}
+
+class QrCodeViewController {
+  final int id;
+  MethodChannel _channel;
+  EventChannel _eventChannel;
+  Function(bool, String) scanCallback;
+
+  QrCodeViewController(this.id, this.scanCallback) {
+    _eventChannel = EventChannel('com.qrcode.scan/event_$id');
+    _channel = MethodChannel('com.qrcode.scan/channel_$id');
+    _eventChannel.receiveBroadcastStream().listen(onScanSuccess,
+        onError: onScanError, onDone: onScanFinish, cancelOnError: false);
   }
 
-  //接收扫码结果
-  void listenScanResult(void onData(String event)) {
-    _eventChannel.receiveBroadcastStream().listen(onData);
+  void onScanSuccess(Object result) {
+    scanCallback(true, result.toString());
   }
+
+  void onScanError(Object result) {
+    scanCallback(false, "");
+  }
+
+  void onScanFinish() {}
 
   // 打开手电筒
   Future<bool> setFlashlightOn() async {

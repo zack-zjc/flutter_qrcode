@@ -12,7 +12,7 @@ class FlutterQrcodePlugin: MethodCallHandler {
   companion object {
     @JvmStatic
     fun registerWith(registrar: Registrar) {
-      val channel = MethodChannel(registrar.messenger(), "flutter_qrcode")
+      val channel = MethodChannel(registrar.messenger(), "com.qrcode.scan/flutter_qrcode")
       channel.setMethodCallHandler(FlutterQrcodePlugin())
       registrar.platformViewRegistry().registerViewFactory(
               "Android/scanQrCodeView", AndroidQrcodeViewFactory(registrar)
