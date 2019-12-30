@@ -31,4 +31,4 @@ samples, guidance on mobile development, and a full API reference.
 ```
 
 ## 效果图
-![image](https://github.com/zack-zjc/flutter_qrcode/master/image/capture.jpg?raw=true)
+![image](https://github.com/zack-zjc/flutter_qrcode/blob/master/image/capture.jpg?raw=true)
