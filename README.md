@@ -65,5 +65,3 @@ To use on iOS, you must add the the camera usage description to your Info.plist
 
 his example is using camera ,please accept permission before use this plugin and test example
 
-### IMAGE_PRWIEW
-![image](https://github.com/zack-zjc/flutter_qrcode/blob/master/image/capture.jpg?raw=true)
