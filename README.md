@@ -14,7 +14,7 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
 
-### flutter
+### FLUTTER
 
 you can depend on the flutter_qrcode plugin in your pubspec.yaml file
 ```groovy
@@ -54,8 +54,11 @@ To use on iOS, you must add the the camera usage description to your Info.plist
 ### FUNCTION
 
 1.check torch state
+
 2.open or close torch
+
 3.restartScan after scan complete
+
 4.waitting for more
 
 ### ATTENTION
