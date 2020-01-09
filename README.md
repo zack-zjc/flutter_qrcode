@@ -39,6 +39,10 @@ you can depend on the flutter_qrcode plugin in your pubspec.yaml file
          },
       )
 ```
+
+```groovy
+  var qrCode = await FlutterQrCode().scanFile(File);
+```
 ### ANDROID
 
 This plugin is written in Kotlin. Therefore, you need to add Kotlin support to your project
