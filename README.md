@@ -53,13 +53,15 @@ To use on iOS, you must add the the camera usage description to your Info.plist
 
 ### FUNCTION
 
-1.check torch state
+1.getQrcodeFromFile(without ui only use methodChannel)
 
-2.open or close torch
+2.check torch state
 
-3.restartScan after scan complete
+3.open or close torch
 
-4.waitting for more
+4.restartScan after scan complete
+
+5.waitting for more
 
 ### ATTENTION
 
