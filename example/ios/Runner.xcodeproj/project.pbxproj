@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		213FF985AD426C4E6F3AB0EE /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BA0DBE5C171B3A333B5F89 /* Pods_Runner.framework */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		3B80C3941E831B6300D905FE /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; };
 		3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -36,6 +37,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		044A9B5623C6CB0100FC2DF8 /* flutter_qrcode.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = flutter_qrcode.podspec; sourceTree = "<group>"; };
+		044A9B5823C6CB0100FC2DF8 /* HBK_ScaningView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBK_ScaningView.h; sourceTree = "<group>"; };
+		044A9B5923C6CB0100FC2DF8 /* SwiftFlutterQrcodePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFlutterQrcodePlugin.swift; sourceTree = "<group>"; };
+		044A9B5A23C6CB0100FC2DF8 /* QRFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRFactory.h; sourceTree = "<group>"; };
+		044A9B5B23C6CB0100FC2DF8 /* QRView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRView.m; sourceTree = "<group>"; };
+		044A9B5C23C6CB0100FC2DF8 /* HBK_ScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBK_ScanViewController.h; sourceTree = "<group>"; };
+		044A9B5D23C6CB0100FC2DF8 /* FlutterQrcodePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlutterQrcodePlugin.m; sourceTree = "<group>"; };
+		044A9B5E23C6CB0100FC2DF8 /* HBK_ScaningView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBK_ScaningView.m; sourceTree = "<group>"; };
+		044A9B5F23C6CB0100FC2DF8 /* QRView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRView.h; sourceTree = "<group>"; };
+		044A9B6023C6CB0100FC2DF8 /* QRFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRFactory.m; sourceTree = "<group>"; };
+		044A9B6123C6CB0100FC2DF8 /* FlutterQrcodePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlutterQrcodePlugin.h; sourceTree = "<group>"; };
+		044A9B6223C6CB0100FC2DF8 /* HBK_ScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBK_ScanViewController.m; sourceTree = "<group>"; };
+		044A9B6323C6CB0100FC2DF8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		044A9B6523C6CB0100FC2DF8 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
@@ -51,6 +66,10 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6BA0DBE5C171B3A333B5F89 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7ACBF2446DD71FF1208A5A5 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		F1A75461012DFC7FC88986A7 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		F875F95D4446804D47CAE8DD /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +79,69 @@
 			files = (
 				9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */,
 				3B80C3941E831B6300D905FE /* App.framework in Frameworks */,
+				213FF985AD426C4E6F3AB0EE /* Pods_Runner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044A9B5523C6CB0100FC2DF8 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				044A9B5623C6CB0100FC2DF8 /* flutter_qrcode.podspec */,
+				044A9B5723C6CB0100FC2DF8 /* Classes */,
+				044A9B6323C6CB0100FC2DF8 /* .gitignore */,
+				044A9B6423C6CB0100FC2DF8 /* Assets */,
+			);
+			name = ios;
+			path = ../../ios;
+			sourceTree = "<group>";
+		};
+		044A9B5723C6CB0100FC2DF8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				044A9B6123C6CB0100FC2DF8 /* FlutterQrcodePlugin.h */,
+				044A9B5D23C6CB0100FC2DF8 /* FlutterQrcodePlugin.m */,
+				044A9B5823C6CB0100FC2DF8 /* HBK_ScaningView.h */,
+				044A9B5E23C6CB0100FC2DF8 /* HBK_ScaningView.m */,
+				044A9B5C23C6CB0100FC2DF8 /* HBK_ScanViewController.h */,
+				044A9B6223C6CB0100FC2DF8 /* HBK_ScanViewController.m */,
+				044A9B5A23C6CB0100FC2DF8 /* QRFactory.h */,
+				044A9B6023C6CB0100FC2DF8 /* QRFactory.m */,
+				044A9B5F23C6CB0100FC2DF8 /* QRView.h */,
+				044A9B5B23C6CB0100FC2DF8 /* QRView.m */,
+				044A9B5923C6CB0100FC2DF8 /* SwiftFlutterQrcodePlugin.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		044A9B6423C6CB0100FC2DF8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				044A9B6523C6CB0100FC2DF8 /* .gitkeep */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		43998CDFECE60A71F4B3089A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F875F95D4446804D47CAE8DD /* Pods-Runner.debug.xcconfig */,
+				E7ACBF2446DD71FF1208A5A5 /* Pods-Runner.release.xcconfig */,
+				F1A75461012DFC7FC88986A7 /* Pods-Runner.profile.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6F9A82C2743C56D4FE30AA74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6BA0DBE5C171B3A333B5F89 /* Pods_Runner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9740EEB11CF90186004384FC /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,9 +158,12 @@
 		97C146E51CF9000F007C117D = {
 			isa = PBXGroup;
 			children = (
+				044A9B5523C6CB0100FC2DF8 /* ios */,
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
+				43998CDFECE60A71F4B3089A /* Pods */,
+				6F9A82C2743C56D4FE30AA74 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,12 +205,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
+				DF19C69AA8C4EA99789E2F8B /* [CP] Check Pods Manifest.lock */,
 				9740EEB61CF901F6004384FC /* Run Script */,
 				97C146EA1CF9000F007C117D /* Sources */,
 				97C146EB1CF9000F007C117D /* Frameworks */,
 				97C146EC1CF9000F007C117D /* Resources */,
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
+				B25B95EAEFC3006A0B760039 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,6 +234,7 @@
 				TargetAttributes = {
 					97C146ED1CF9000F007C117D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6D7J43H33A;
 						LastSwiftMigration = 0910;
 					};
 				};
@@ -218,6 +300,43 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
+		};
+		B25B95EAEFC3006A0B760039 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF19C69AA8C4EA99789E2F8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Runner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -309,7 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = S8QB4VV633;
+				DEVELOPMENT_TEAM = 6D7J43H33A;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -324,7 +443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qrcode.scan.flutterQrcodeExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Profile;
@@ -443,6 +562,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6D7J43H33A;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -459,7 +579,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -471,6 +591,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6D7J43H33A;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -486,7 +607,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -515,7 +636,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = 97C146E61CF9000F007C117D /* Project object */;
 }

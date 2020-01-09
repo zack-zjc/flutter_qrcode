@@ -44,7 +44,10 @@ class QrCodeScanViewState extends State<QrCodeScanView> {
         creationParamsCodec: StandardMessageCodec(),
       );
     }
-    return Text("no implement");
+    return UiKitView(
+    viewType: "iOS/scanQrCodeView",
+    onPlatformViewCreated: createdFunction,
+    creationParamsCodec: StandardMessageCodec(),);
   }
 
   void createdFunction(id) {
