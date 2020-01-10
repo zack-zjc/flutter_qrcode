@@ -28,7 +28,7 @@ you can depend on the flutter_qrcode plugin in your pubspec.yaml file
 
 ```groovy
      QrCodeScanView(
-        controllerCallback: (controller) {
+        onViewCreated: (controller) {
           _controller = controller;
         },
         scanCallback: (success, text) {
@@ -37,6 +37,7 @@ you can depend on the flutter_qrcode plugin in your pubspec.yaml file
              _controller.restartScan();
           }
          },
+        permissionDenialCallback: (message) {},
       )
 ```
 
