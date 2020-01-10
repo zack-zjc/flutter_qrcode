@@ -47,6 +47,8 @@ you can depend on the flutter_qrcode plugin in your pubspec.yaml file
 
 This plugin is written in Kotlin. Therefore, you need to add Kotlin support to your project
 
+This plugin has permission check so no use to request permission before use
+
 ### IOS
 
 To use on iOS, you must add the the camera usage description to your Info.plist
@@ -65,9 +67,8 @@ To use on iOS, you must add the the camera usage description to your Info.plist
 
 4.restartScan after scan complete
 
-5.waitting for more
+5.check camera permission in android
 
-### ATTENTION
+6.waitting for more
 
-his example is using camera ,please accept permission before use this plugin and test example
 
