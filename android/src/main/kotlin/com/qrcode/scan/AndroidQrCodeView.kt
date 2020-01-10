@@ -2,7 +2,7 @@ package com.qrcode.scan
 
 import android.content.Context
 import android.view.View
-import com.qrcode.scan.view.QRCodeCalback
+import com.qrcode.scan.view.QRCodeCallback
 import com.qrcode.scan.view.QrCodeScanView
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
@@ -16,7 +16,7 @@ import io.flutter.plugin.platform.PlatformView
  * @Description 本地对应的控件
  * @Version 1.0
  */
-class AndroidQrcodeView(context: Context, id: String, mRegistrar: PluginRegistry.Registrar) : PlatformView, MethodChannel.MethodCallHandler{
+class AndroidQrCodeView(context: Context, id: String, mRegistrar: PluginRegistry.Registrar) : PlatformView, MethodChannel.MethodCallHandler{
 
     private val methodChannel: MethodChannel = MethodChannel(mRegistrar.messenger(), "com.qrcode.scan/channel_$id")
 
@@ -28,6 +28,7 @@ class AndroidQrcodeView(context: Context, id: String, mRegistrar: PluginRegistry
 
     init {
         methodChannel.setMethodCallHandler(this)
+        mQrCodeScanView.setActivityReference(mRegistrar.activity())
         eventChannel.setStreamHandler(object : EventChannel.StreamHandler {
             override fun onListen(o: Any?, eventSink: EventChannel.EventSink?) {
                 sink = eventSink
@@ -37,13 +38,17 @@ class AndroidQrcodeView(context: Context, id: String, mRegistrar: PluginRegistry
                 sink = null
             }
         })
-        mQrCodeScanView.setCallback(object :QRCodeCalback{
+        mQrCodeScanView.setCallback(object : QRCodeCallback {
             override fun onScanSuccess(text: String) {
                 sink?.success(text)
             }
 
             override fun onScanFail() {
-                sink?.error("status","-1",null)
+                sink?.error("0","scan fail",null)
+            }
+
+            override fun permissionDenial() {
+                sink?.error("-1","permission denial",null)
             }
 
         })

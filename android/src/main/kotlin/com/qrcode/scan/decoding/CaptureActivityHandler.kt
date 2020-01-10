@@ -2,10 +2,10 @@ package com.qrcode.scan.decoding
 
 import android.os.Handler
 import android.os.Message
-import com.qrcode.scan.camera.CameraManager
-import com.qrcode.scan.view.QRCodeCalback
 import com.google.zxing.Result
+import com.qrcode.scan.camera.CameraManager
 import com.qrcode.scan.flutter_qrcode.R
+import com.qrcode.scan.view.QRCodeCallback
 
 
 /**
@@ -13,7 +13,7 @@ import com.qrcode.scan.flutter_qrcode.R
  * Date:2019/4/22
  * Description:CaptureActivityHandler
  */
-class CaptureActivityHandler(private val qrCodeCallback: QRCodeCalback?): Handler() {
+class CaptureActivityHandler(private val qrCodeCallback: QRCodeCallback?): Handler() {
 
   private val decodeThread: DecodeThread = DecodeThread(this)
   private var state: State = State.SUCCESS

@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
         body: Stack(
           children: <Widget>[
             QrCodeScanView(
-              controllerCallback: (controller) {
+              onViewCreated: (controller) {
                 _controller = controller;
               },
               scanCallback: (success, text) {
@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> {
                   _controller.restartScan();
                 }
               },
+              permissionDenialCallback: (message) {},
             ),
             GestureDetector(
               child: Text(

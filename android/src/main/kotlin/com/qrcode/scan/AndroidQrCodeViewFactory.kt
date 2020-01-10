@@ -12,8 +12,8 @@ import io.flutter.plugin.platform.PlatformViewFactory
  * @Description viewFactory
  * @Version 1.0
  */
-class AndroidQrcodeViewFactory(private val registrar: PluginRegistry.Registrar) : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
+class AndroidQrCodeViewFactory(private val registrar: PluginRegistry.Registrar) : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
 
     override fun create(context: Context?, id: Int, param: Any?): PlatformView =
-            AndroidQrcodeView(context!!, id.toString(), this.registrar)
+            AndroidQrCodeView(context!!, id.toString(), this.registrar)
 }

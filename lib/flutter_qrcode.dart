@@ -5,6 +5,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
+typedef void PermissionDenialCallback(String message);
+typedef void ScanCallback(bool result, String message);
+typedef void ScanViewControllerCreated(QrCodeViewController controller);
+
 class FlutterQrCode {
   static const MethodChannel _channel =
       const MethodChannel('com.qrcode.scan/flutter_qrcode');
@@ -23,11 +27,17 @@ class FlutterQrCode {
 }
 
 class QrCodeScanView extends StatefulWidget {
-  final Function(QrCodeViewController) controllerCallback;
+  final ScanViewControllerCreated onViewCreated;
 
-  final Function(bool, String) scanCallback;
+  final ScanCallback scanCallback;
 
-  QrCodeScanView({Key key, this.controllerCallback, this.scanCallback})
+  final PermissionDenialCallback permissionDenialCallback;
+
+  QrCodeScanView(
+      {Key key,
+      @required this.onViewCreated,
+      @required this.scanCallback,
+      @required this.permissionDenialCallback})
       : super(key: key);
 
   @override
@@ -54,7 +64,8 @@ class QrCodeScanViewState extends State<QrCodeScanView> {
   }
 
   void createdFunction(id) {
-    widget.controllerCallback(QrCodeViewController(id, widget.scanCallback));
+    widget.onViewCreated(QrCodeViewController(
+        id, widget.scanCallback, widget.permissionDenialCallback));
   }
 }
 
@@ -62,9 +73,11 @@ class QrCodeViewController {
   final int id;
   MethodChannel _channel;
   EventChannel _eventChannel;
-  Function(bool, String) scanCallback;
+  ScanCallback scanCallback;
+  PermissionDenialCallback permissionDenialCallback;
 
-  QrCodeViewController(this.id, this.scanCallback) {
+  QrCodeViewController(
+      this.id, this.scanCallback, this.permissionDenialCallback) {
     _eventChannel = EventChannel('com.qrcode.scan/event_$id');
     _channel = MethodChannel('com.qrcode.scan/channel_$id');
     _eventChannel.receiveBroadcastStream().listen(onScanSuccess,
@@ -76,7 +89,13 @@ class QrCodeViewController {
   }
 
   void onScanError(Object result) {
-    scanCallback(false, "");
+    if (result is PlatformException) {
+      if (result.code == "-1") {
+        permissionDenialCallback(result.details);
+      } else {
+        scanCallback(false, result.details);
+      }
+    }
   }
 
   void onScanFinish() {}

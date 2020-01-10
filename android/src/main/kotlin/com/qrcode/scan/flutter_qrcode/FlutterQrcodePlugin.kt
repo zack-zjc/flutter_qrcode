@@ -1,6 +1,6 @@
 package com.qrcode.scan.flutter_qrcode
 
-import com.qrcode.scan.AndroidQrcodeViewFactory
+import com.qrcode.scan.AndroidQrCodeViewFactory
 import com.qrcode.scan.util.QrcodeUtil
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -15,7 +15,7 @@ class FlutterQrcodePlugin: MethodCallHandler {
       val channel = MethodChannel(registrar.messenger(), "com.qrcode.scan/flutter_qrcode")
       channel.setMethodCallHandler(FlutterQrcodePlugin())
       registrar.platformViewRegistry().registerViewFactory(
-              "Android/scanQrCodeView", AndroidQrcodeViewFactory(registrar)
+              "Android/scanQrCodeView", AndroidQrCodeViewFactory(registrar)
       )
     }
   }

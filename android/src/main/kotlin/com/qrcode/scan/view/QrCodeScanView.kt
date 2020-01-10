@@ -2,12 +2,18 @@ package com.qrcode.scan.view
 
 import android.app.Activity
 import android.content.Context
+import android.content.pm.PackageManager
+import android.os.Build
+import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import android.view.*
 import android.widget.FrameLayout
 import com.qrcode.scan.camera.CameraManager
 import com.qrcode.scan.decoding.CaptureActivityHandler
 import com.qrcode.scan.flutter_qrcode.R
+import com.qrcode.scan.permission.PermissionCallback
+import com.qrcode.scan.permission.PermissionCheckUtil
+import java.lang.ref.SoftReference
 
 /**
  * @Author zack
@@ -16,13 +22,14 @@ import com.qrcode.scan.flutter_qrcode.R
  * @Version 1.0
  */
 class QrCodeScanView @JvmOverloads constructor(context: Context, attributes: AttributeSet? =null, defStyleAttr: Int = 0)
-    : FrameLayout(context,attributes,defStyleAttr),SurfaceHolder.Callback ,QRCodeCalback {
+    : FrameLayout(context,attributes,defStyleAttr),SurfaceHolder.Callback ,QRCodeCallback {
 
     private var captureActivityHandler: CaptureActivityHandler? = null
     private val surfaceView: SurfaceView
     private val viewfinderView: View
-    private var callback:QRCodeCalback?=null
+    private var callback:QRCodeCallback?=null
     private var hasSurface: Boolean = false
+    private var activityReference:SoftReference<Activity>? = null
 
     init {
         val layoutView = LayoutInflater.from(context).inflate(R.layout.layout_qrcode_view,this)
@@ -39,9 +46,16 @@ class QrCodeScanView @JvmOverloads constructor(context: Context, attributes: Att
     }
 
     /**
+     * 设置界面软引用
+     */
+    fun setActivityReference(activity: Activity){
+        this.activityReference = SoftReference(activity)
+    }
+
+    /**
      * 设置扫码callback
      */
-    fun setCallback(callback:QRCodeCalback){
+    fun setCallback(callback:QRCodeCallback){
         this.callback = callback
     }
 
@@ -53,6 +67,10 @@ class QrCodeScanView @JvmOverloads constructor(context: Context, attributes: Att
         callback?.onScanFail()
     }
 
+    override fun permissionDenial() {
+        callback?.permissionDenial()
+    }
+
     /**
      * 延时重新扫描
      */
@@ -60,6 +78,27 @@ class QrCodeScanView @JvmOverloads constructor(context: Context, attributes: Att
         postDelayed({
             captureActivityHandler?.obtainMessage(R.id.restart_preview)?.sendToTarget()
             },time)
+    }
+
+    /**
+     * 检测权限并打开照相机
+     */
+    private fun checkCameraPermission(){
+        if (ContextCompat.checkSelfPermission(context,android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+            initCamera()
+        }else{
+            activityReference?.get()?.let {
+                PermissionCheckUtil.getInstance(it).requestPermission(arrayOf(android.Manifest.permission.CAMERA),object :PermissionCallback{
+                    override fun onPermissionChecked(granted: Boolean) {
+                        if (granted){
+                            initCamera()
+                        }else{
+                            callback?.permissionDenial()
+                        }
+                    }
+                })
+            }
+        }
     }
 
     /**
@@ -100,7 +139,7 @@ class QrCodeScanView @JvmOverloads constructor(context: Context, attributes: Att
     override fun surfaceCreated(p0: SurfaceHolder?) {
         if (!hasSurface) {
             hasSurface = true
-            initCamera()
+            checkCameraPermission()
         }
     }
 
